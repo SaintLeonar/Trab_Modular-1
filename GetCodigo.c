@@ -2,7 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-char* DIC_le_codigo(void) /* Codigo da disciplina no padr„o inf0000 */
+/***************************************************************************
+*
+*  Fun√ß√£o: DIC ler codigo
+*  ****/
+char* DIC_le_codigo(void) /* Codigo da disciplina no padr√£o inf0000 */
 {
 	char* cod2 = malloc(5 * sizeof(char)); /* cod2 = parte numerica */
 	if (cod2 == NULL)
@@ -18,19 +22,25 @@ char* DIC_le_codigo(void) /* Codigo da disciplina no padr„o inf0000 */
 		exit(-1);
 	}
 
-	cod1[0] = 'i';                  /* "inf" j· vir· como prefixo do codigo */
+	cod1[0] = 'i';                  /* "inf" j√° vir√° como prefixo do codigo */
 	cod1[1] = 'n';
 	cod1[2] = 'f';
 	cod1[3] = '\0';
 
-	scanf("%4s", cod2); /* O usuario digitar· apenas a parte numerica do codigo (4 Numerais no caso)*/
+	scanf("%4s", cod2); /* O usuario digitar√° apenas a parte numerica do codigo (4 Numerais no caso)*/
 
-	strcat(cod1, cod2);	  /* Concatena "inf" + 4 numerais no m·ximo */
+	strcat(cod1, cod2);	  /* Concatena "inf" + 4 numerais no m√°ximo */
 
 	free(cod2);
 
 	return cod1;
 }
+}/* Fim fun√ß√£o: DIC ler nome */
+
+/***************************************************************************
+*
+*  Fun√ß√£o: DIC obter codigo
+*  ****/
 DIC_tpCondRet DIC_get_codigo(Diciplina *d, char *codigo) {
 	if (d->codigo)
 	{
@@ -39,17 +49,4 @@ DIC_tpCondRet DIC_get_codigo(Diciplina *d, char *codigo) {
 	}
 	return DIC_CondRetErroEstrutura;
 }
-/* 
-
-	TESTE DA FUN«√O DIC_le_codigo
-
-int main()
-{
-	char* codigo = DIC_le_codigo();
-
-	printf("%s\n\n", codigo);
-
-	return 0;
-}
-
-*/
+/* Fim fun√ß√£o: DIC obter nome */
