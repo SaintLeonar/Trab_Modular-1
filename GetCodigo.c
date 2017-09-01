@@ -6,30 +6,30 @@
 *
 *  Função: DIC ler codigo
 *  ****/
-char* DIC_le_codigo(void) /* Codigo da disciplina no padrão inf0000 */
+char* DIC_le_codigo(void) 				/* Codigo da disciplina no padrão inf0000 */
 {
-	char* cod2 = malloc(5 * sizeof(char)); /* cod2 = parte numerica */
+	char* cod2 = malloc(5 * sizeof(char)); 		/* cod2 = parte numerica */
 	if (cod2 == NULL)
 	{
 		printf("Memoria insuficiente!\n\n");
 		exit(-1);
 	}
 
-	char* cod1 = (char*)malloc(8 * sizeof(char)); /*cod1 = prefixo*/
+	char* cod1 = (char*)malloc(8 * sizeof(char)); 	/*cod1 = prefixo*/
 	if (cod1 == NULL)
 	{
 		printf("Memoria insuficiente!\n\n");
 		exit(-1);
 	}
 
-	cod1[0] = 'i';                  /* "inf" já virá como prefixo do codigo */
+	cod1[0] = 'i';                  		/* "inf" já virá como prefixo do codigo */
 	cod1[1] = 'n';
 	cod1[2] = 'f';
 	cod1[3] = '\0';
 
-	scanf("%4s", cod2); /* O usuario digitará apenas a parte numerica do codigo (4 Numerais no caso)*/
+	scanf("%4s", cod2); 				/* O usuario digitará apenas a parte numerica do codigo (4 Numerais no caso)*/
 
-	strcat(cod1, cod2);	  /* Concatena "inf" + 4 numerais no máximo */
+	strcat(cod1, cod2);	  			/* Concatena "inf" + 4 numerais no máximo */
 
 	free(cod2);
 
